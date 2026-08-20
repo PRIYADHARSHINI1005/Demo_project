@@ -1,0 +1,365 @@
+/* Project colour codes */
+.loan-application-page {
+  --dark-blue: #001e8c;
+  --blue: #0473ea;
+  --light-blue: #52daff;
+  --light-green: #82f028;
+  --white: #ffffff;
+  --grey: #d4d4d4;
+  --dark-green: #05561c;
+  --green: #38d200;
+  --purple: #7d17f2;
+  --orange: #f98764;
+  --red: #d50000;
+  --yellow: #ffc120;
+
+  width: 100%;
+  min-height: 100%;
+  padding: 30px;
+  background-color: var(--grey);
+  color: var(--dark-blue);
+}
+
+.loan-application-page * {
+  box-sizing: border-box;
+}
+
+.application-container {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* Page heading */
+
+.application-heading {
+  margin-bottom: 25px;
+}
+
+.application-heading h1 {
+  margin: 8px 0;
+  color: var(--dark-blue);
+  font-size: 32px;
+}
+
+.application-heading p {
+  margin: 5px 0;
+  color: var(--dark-blue);
+}
+
+.application-heading p:first-child {
+  color: var(--blue);
+  font-size: 14px;
+}
+
+/* Stepper */
+
+.application-stepper {
+  margin-bottom: 25px;
+  border: 1px solid var(--grey);
+  padding: 18px 22px;
+  background-color: var(--white);
+}
+
+.application-stepper p {
+  margin: 0 0 12px;
+  color: var(--dark-blue);
+  font-weight: bold;
+}
+
+.application-stepper progress {
+  width: 100%;
+  height: 12px;
+  accent-color: var(--blue);
+}
+
+.application-stepper progress::-webkit-progress-bar {
+  background-color: var(--grey);
+}
+
+.application-stepper progress::-webkit-progress-value {
+  background-color: var(--blue);
+}
+
+.step-names {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  color: var(--dark-blue);
+  font-size: 14px;
+}
+
+.step-names span {
+  padding: 6px;
+}
+
+.step-names .active-step {
+  border-bottom: 3px solid var(--blue);
+  color: var(--blue);
+  font-weight: bold;
+}
+
+/* Main application card */
+
+.application-card {
+  overflow: hidden;
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  background-color: var(--white);
+}
+
+.form-step {
+  padding: 30px;
+}
+
+.form-step h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  color: var(--dark-blue);
+}
+
+.form-step > p {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: var(--blue);
+}
+
+/* Form layout */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  color: var(--dark-blue);
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid var(--grey);
+  border-radius: 4px;
+  padding: 12px;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--grey);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border: 2px solid var(--blue);
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Document upload */
+
+.document-list {
+  display: grid;
+  gap: 20px;
+}
+
+.document-group {
+  border: 2px dashed var(--grey);
+  border-radius: 6px;
+  padding: 20px;
+  background-color: var(--white);
+}
+
+.document-group:hover {
+  border-color: var(--light-blue);
+}
+
+.document-group label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--dark-blue);
+  font-weight: bold;
+}
+
+.document-group input {
+  width: 100%;
+  color: var(--dark-blue);
+}
+
+.document-group input::file-selector-button {
+  margin-right: 15px;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px;
+  background-color: var(--blue);
+  color: var(--white);
+  cursor: pointer;
+}
+
+.file-name {
+  margin: 12px 0 0;
+  color: var(--dark-green);
+  font-weight: bold;
+}
+
+/* Review screen */
+
+.review-section {
+  margin-top: 20px;
+  border: 1px solid var(--grey);
+  border-left: 5px solid var(--blue);
+  border-radius: 5px;
+  padding: 20px;
+  background-color: var(--white);
+}
+
+.review-section h3 {
+  margin-top: 0;
+  color: var(--blue);
+}
+
+.review-section p {
+  margin: 10px 0;
+  color: var(--dark-blue);
+}
+
+.declaration {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 25px;
+  border: 1px solid var(--yellow);
+  padding: 15px;
+  background-color: var(--white);
+}
+
+.declaration input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--green);
+}
+
+.declaration label {
+  color: var(--dark-blue);
+}
+
+/* Buttons */
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey);
+  padding: 20px 30px;
+  background-color: var(--white);
+}
+
+.form-actions button {
+  border: 1px solid var(--dark-blue);
+  border-radius: 4px;
+  padding: 11px 25px;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.form-actions button[type="submit"] {
+  border-color: var(--dark-green);
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+.form-actions button[type="submit"]:hover {
+  border-color: var(--green);
+  background-color: var(--green);
+  color: var(--dark-blue);
+}
+
+.form-actions button:disabled {
+  border-color: var(--grey);
+  background-color: var(--grey);
+  color: var(--white);
+  cursor: not-allowed;
+}
+
+/* Browser validation */
+
+.form-group input:invalid:focus,
+.form-group select:invalid:focus,
+.form-group textarea:invalid:focus {
+  border-color: var(--red);
+}
+
+/* Success screen */
+
+.success-page {
+  display: flex;
+  width: 100%;
+  min-height: 600px;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  background-color: var(--grey);
+}
+
+.success-card {
+  width: 100%;
+  max-width: 550px;
+  border-top: 8px solid var(--green);
+  border-radius: 8px;
+  padding: 40px;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  text-align: center;
+}
+
+.success-card h1 {
+  color: var(--dark-green);
+}
+
+.success-card strong {
+  color: var(--blue);
+}
+
+/* Tablet and mobile */
+
+@media (max-width: 700px) {
+  .loan-application-page {
+    padding: 15px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .form-step {
+    padding: 20px;
+  }
+
+  .step-names {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .form-actions {
+    padding: 15px 20px;
+  }
+}
