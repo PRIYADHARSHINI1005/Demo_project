@@ -1,0 +1,102 @@
+function ApplicationStepper({ step, goToStep }) {
+  return (
+    <div className="stepper-container">
+      <div className="step-item">
+        <button
+          type="button"
+          className={
+            step === 1
+              ? "step-circle current-step"
+              : "step-circle completed-step"
+          }
+          onClick={() => goToStep(1)}
+        >
+          {step > 1 ? "✓" : "1"}
+        </button>
+
+        <span>Personal Details</span>
+      </div>
+
+      <div
+        className={
+          step > 1
+            ? "step-line completed-line"
+            : "step-line"
+        }
+      ></div>
+
+      <div className="step-item">
+        <button
+          type="button"
+          className={
+            step === 2
+              ? "step-circle current-step"
+              : step > 2
+              ? "step-circle completed-step"
+              : "step-circle"
+          }
+          onClick={() => goToStep(2)}
+          disabled={step < 2}
+        >
+          {step > 2 ? "✓" : "2"}
+        </button>
+
+        <span>Loan Details</span>
+      </div>
+
+      <div
+        className={
+          step > 2
+            ? "step-line completed-line"
+            : "step-line"
+        }
+      ></div>
+
+      <div className="step-item">
+        <button
+          type="button"
+          className={
+            step === 3
+              ? "step-circle current-step"
+              : step > 3
+              ? "step-circle completed-step"
+              : "step-circle"
+          }
+          onClick={() => goToStep(3)}
+          disabled={step < 3}
+        >
+          {step > 3 ? "✓" : "3"}
+        </button>
+
+        <span>Documents</span>
+      </div>
+
+      <div
+        className={
+          step > 3
+            ? "step-line completed-line"
+            : "step-line"
+        }
+      ></div>
+
+      <div className="step-item">
+        <button
+          type="button"
+          className={
+            step === 4
+              ? "step-circle current-step"
+              : "step-circle"
+          }
+          onClick={() => goToStep(4)}
+          disabled={step < 4}
+        >
+          4
+        </button>
+
+        <span>Review</span>
+      </div>
+    </div>
+  );
+}
+
+export default ApplicationStepper;
