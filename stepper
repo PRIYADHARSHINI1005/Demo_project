@@ -1,99 +1,93 @@
-function ApplicationStepper({ step, goToStep }) {
+function ApplicationStepper({ step, setStep }) {
   return (
-    <div className="stepper-container">
-      <div className="step-item">
+    <div className="stepper">
+      <div className="step-section">
         <button
           type="button"
           className={
             step === 1
-              ? "step-circle current-step"
-              : "step-circle completed-step"
+              ? "step-circle current"
+              : "step-circle completed"
           }
-          onClick={() => goToStep(1)}
+          onClick={() => setStep(1)}
         >
           {step > 1 ? "✓" : "1"}
         </button>
 
-        <span>Personal Details</span>
+        <p>Personal Details</p>
       </div>
 
       <div
         className={
-          step > 1
-            ? "step-line completed-line"
-            : "step-line"
+          step > 1 ? "step-line completed-line" : "step-line"
         }
       ></div>
 
-      <div className="step-item">
+      <div className="step-section">
         <button
           type="button"
           className={
             step === 2
-              ? "step-circle current-step"
+              ? "step-circle current"
               : step > 2
-              ? "step-circle completed-step"
+              ? "step-circle completed"
               : "step-circle"
           }
-          onClick={() => goToStep(2)}
+          onClick={() => setStep(2)}
           disabled={step < 2}
         >
           {step > 2 ? "✓" : "2"}
         </button>
 
-        <span>Loan Details</span>
+        <p>Loan Details</p>
       </div>
 
       <div
         className={
-          step > 2
-            ? "step-line completed-line"
-            : "step-line"
+          step > 2 ? "step-line completed-line" : "step-line"
         }
       ></div>
 
-      <div className="step-item">
+      <div className="step-section">
         <button
           type="button"
           className={
             step === 3
-              ? "step-circle current-step"
+              ? "step-circle current"
               : step > 3
-              ? "step-circle completed-step"
+              ? "step-circle completed"
               : "step-circle"
           }
-          onClick={() => goToStep(3)}
+          onClick={() => setStep(3)}
           disabled={step < 3}
         >
           {step > 3 ? "✓" : "3"}
         </button>
 
-        <span>Documents</span>
+        <p>Documents</p>
       </div>
 
       <div
         className={
-          step > 3
-            ? "step-line completed-line"
-            : "step-line"
+          step > 3 ? "step-line completed-line" : "step-line"
         }
       ></div>
 
-      <div className="step-item">
+      <div className="step-section">
         <button
           type="button"
           className={
             step === 4
-              ? "step-circle current-step"
+              ? "step-circle current"
               : "step-circle"
           }
-          onClick={() => goToStep(4)}
+          onClick={() => setStep(4)}
           disabled={step < 4}
         >
           4
         </button>
 
-        <span>Review</span>
+        <p>Review</p>
       </div>
     </div>
   );
