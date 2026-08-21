@@ -1,71 +1,46 @@
-function CommentCard({ comment, handleMarkAsRead }) {
+function CommentCard({ comment, handleModify }) {
   return (
-    <div
-      className={
-        comment.isRead
-          ? "comment-card"
-          : "comment-card unread-comment"
-      }
-    >
-      <div className="comment-header">
+    <div className="comment-card">
+      <div className="comment-card-header">
         <div>
-          <p className="application-number">
-            Application: {comment.applicationId}
-          </p>
-
           <h3>{comment.sender}</h3>
+          <span className="maker-badge">
+            {comment.role}
+          </span>
         </div>
 
-        {!comment.isRead && (
-          <span className="new-badge">New</span>
-        )}
+        <p className="comment-date">
+          {comment.date}
+        </p>
       </div>
-
-      <span
-        className={
-          comment.role === "MAKER"
-            ? "role-badge maker-badge"
-            : "role-badge checker-badge"
-        }
-      >
-        {comment.role}
-      </span>
 
       <p className="comment-message">
         {comment.message}
       </p>
 
-      <p className="comment-date">
-        {comment.date}
-      </p>
+      <div className="comment-details">
+        <p>
+          <strong>Modification Section:</strong>{" "}
+          {comment.modificationSection}
+        </p>
 
-      <div className="comment-footer">
-        <div>
-          <span className="comment-type">
-            {comment.type}
+        <p>
+          <strong>Status:</strong>{" "}
+          <span className="action-status">
+            Action Required
           </span>
-
-          <span
-            className={
-              comment.status === "Open"
-                ? "status-badge open-status"
-                : "status-badge resolved-status"
-            }
-          >
-            {comment.status}
-          </span>
-        </div>
-
-        {!comment.isRead && (
-          <button
-            type="button"
-            className="read-button"
-            onClick={() => handleMarkAsRead(comment.id)}
-          >
-            Mark as Read
-          </button>
-        )}
+        </p>
       </div>
+
+      {comment.status === "ACTION_REQUIRED" && (
+        <button
+          type="button"
+          className="modify-button"
+          onClick={() => handleModify(comment)}
+        >
+          Modify Application →
+        </button>
+      )}
     </div>
   );
 }
