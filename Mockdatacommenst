@@ -1,0 +1,135 @@
+const mockComments = [
+
+  {
+
+    id: 1,
+
+    customerId: "CUS001",
+
+    applicationId: "LOAN001",
+
+    sender: "Operations Maker",
+
+    role: "MAKER",
+
+    message:
+
+      "Please upload a clearer copy of your income proof.",
+
+    date: "20 Aug 2026, 10:30 AM",
+
+    type: "Document Modification",
+
+    status: "Open",
+
+    isRead: false
+
+  },
+
+  {
+
+    id: 2,
+
+    customerId: "CUS001",
+
+    applicationId: "LOAN001",
+
+    sender: "Operations Maker",
+
+    role: "MAKER",
+
+    message:
+
+      "Please verify and update your current residential address.",
+
+    date: "20 Aug 2026, 11:15 AM",
+
+    type: "Personal Details Modification",
+
+    status: "Open",
+
+    isRead: false
+
+  },
+
+  {
+
+    id: 3,
+
+    customerId: "CUS001",
+
+    applicationId: "LOAN002",
+
+    sender: "Operations Checker",
+
+    role: "CHECKER",
+
+    message:
+
+      "The requested loan amount does not match the uploaded application document.",
+
+    date: "20 Aug 2026, 2:15 PM",
+
+    type: "Loan Details Modification",
+
+    status: "Open",
+
+    isRead: true
+
+  },
+
+  {
+
+    id: 4,
+
+    customerId: "CUS001",
+
+    applicationId: "LOAN002",
+
+    sender: "Operations Checker",
+
+    role: "CHECKER",
+
+    message:
+
+      "Your updated bank statement has been verified successfully.",
+
+    date: "20 Aug 2026, 4:45 PM",
+
+    type: "Verification Completed",
+
+    status: "Resolved",
+
+    isRead: true
+
+  },
+
+  {
+
+    id: 5,
+
+    customerId: "CUS001",
+
+    applicationId: "LOAN003",
+
+    sender: "Operations Maker",
+
+    role: "MAKER",
+
+    message:
+
+      "Please upload the latest three-month bank statement.",
+
+    date: "21 Aug 2026, 9:30 AM",
+
+    type: "Document Modification",
+
+    status: "Open",
+
+    isRead: false
+
+  }
+
+];
+
+export default mockComments;
