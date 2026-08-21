@@ -1,0 +1,73 @@
+function CommentCard({ comment, handleMarkAsRead }) {
+  return (
+    <div
+      className={
+        comment.isRead
+          ? "comment-card"
+          : "comment-card unread-comment"
+      }
+    >
+      <div className="comment-header">
+        <div>
+          <p className="application-number">
+            Application: {comment.applicationId}
+          </p>
+
+          <h3>{comment.sender}</h3>
+        </div>
+
+        {!comment.isRead && (
+          <span className="new-badge">New</span>
+        )}
+      </div>
+
+      <span
+        className={
+          comment.role === "MAKER"
+            ? "role-badge maker-badge"
+            : "role-badge checker-badge"
+        }
+      >
+        {comment.role}
+      </span>
+
+      <p className="comment-message">
+        {comment.message}
+      </p>
+
+      <p className="comment-date">
+        {comment.date}
+      </p>
+
+      <div className="comment-footer">
+        <div>
+          <span className="comment-type">
+            {comment.type}
+          </span>
+
+          <span
+            className={
+              comment.status === "Open"
+                ? "status-badge open-status"
+                : "status-badge resolved-status"
+            }
+          >
+            {comment.status}
+          </span>
+        </div>
+
+        {!comment.isRead && (
+          <button
+            type="button"
+            className="read-button"
+            onClick={() => handleMarkAsRead(comment.id)}
+          >
+            Mark as Read
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default CommentCard;
