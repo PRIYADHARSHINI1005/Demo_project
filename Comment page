@@ -1,0 +1,112 @@
+import { useState } from "react";
+import CommentsList from "../components/comments/CommentsList";
+import LoanApplicationPage from "./LoanApplicationPage";
+import mockLoanCommentDetails from "../data/mockLoanCommentDetails";
+import "../styles/comments.css";
+
+function LoanCommentsPage() {
+  const [selectedComment, setSelectedComment] =
+    useState(null);
+
+  function findStartingStep(section) {
+    if (section === "Personal Details") {
+      return 1;
+    }
+
+    if (section === "Loan Details") {
+      return 2;
+    }
+
+    if (section === "Documents") {
+      return 3;
+    }
+
+    return 1;
+  }
+
+  function handleModify(comment) {
+    setSelectedComment(comment);
+  }
+
+  function handleBackToComments() {
+    setSelectedComment(null);
+  }
+
+  if (selectedComment !== null) {
+    return (
+      <LoanApplicationPage
+        editMode={true}
+        applicationId={
+          mockLoanCommentDetails.applicationId
+        }
+        startStep={findStartingStep(
+          selectedComment.modificationSection
+        )}
+        onBackToComments={handleBackToComments}
+      />
+    );
+  }
+
+  return (
+    <main className="loan-comments-page">
+      <div className="loan-comments-container">
+        <div className="comments-page-heading">
+          <h1>Comments and Modification Requests</h1>
+
+          <p>
+            Review the Maker comments and complete the
+            requested changes.
+          </p>
+        </div>
+
+        <section className="application-summary">
+          <div>
+            <span>Application ID</span>
+            <strong>
+              {mockLoanCommentDetails.applicationId}
+            </strong>
+          </div>
+
+          <div>
+            <span>Loan Type</span>
+            <strong>
+              {mockLoanCommentDetails.loanType}
+            </strong>
+          </div>
+
+          <div>
+            <span>Requested Amount</span>
+            <strong>
+              ₹
+              {mockLoanCommentDetails.requestedAmount.toLocaleString(
+                "en-IN"
+              )}
+            </strong>
+          </div>
+
+          <div>
+            <span>Application Status</span>
+            <strong className="summary-status">
+              {mockLoanCommentDetails.applicationStatus}
+            </strong>
+          </div>
+        </section>
+
+        <div className="maker-comments-heading">
+          <h2>Maker Comments</h2>
+
+          <span>
+            {mockLoanCommentDetails.comments.length} Comments
+          </span>
+        </div>
+
+        <CommentsList
+          comments={mockLoanCommentDetails.comments}
+          handleModify={handleModify}
+        />
+      </div>
+    </main>
+  );
+}
+
+export default LoanCommentsPage;
