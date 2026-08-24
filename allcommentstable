@@ -1,0 +1,48 @@
+function AllCommentsTable({ comments, handleViewComments }) {
+  if (comments.length === 0) {
+    return <p className="no-comments-message">No comments available.</p>;
+  }
+
+  return (
+    <div className="comments-table-container">
+      <table className="comments-table">
+        <thead>
+          <tr>
+            <th>Loan ID</th>
+            <th>Comment ID</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {comments.map((comment) => (
+            <tr key={comment.commentId}>
+              <td>{comment.loanId}</td>
+
+              <td>{comment.commentId}</td>
+
+              <td>
+                <span className="comment-status">
+                  {comment.status}
+                </span>
+              </td>
+
+              <td>
+                <button
+                  type="button"
+                  className="view-comments-button"
+                  onClick={() => handleViewComments(comment.loanId)}
+                >
+                  View Comments
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default AllCommentsTable;
