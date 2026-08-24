@@ -1,0 +1,5 @@
+    Developed a multi-step Loan Application Form using React.
+* Managed form data and step navigation using useState.
+* Implemented event handling and frontend validation.
+* Added document upload and application review functionality.
+* Designed the UI using responsive CSS and approved project colours
