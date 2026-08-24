@@ -1,0 +1,24 @@
+const mockDashboardComments = [
+  {
+    loanId: "LOAN001",
+    commentId: "COM001",
+    status: "Action Required",
+  },
+  {
+    loanId: "LOAN002",
+    commentId: "COM002",
+    status: "Pending Review",
+  },
+  {
+    loanId: "LOAN003",
+    commentId: "COM003",
+    status: "Resolved",
+  },
+  {
+    loanId: "LOAN001",
+    commentId: "COM004",
+    status: "Action Required",
+  },
+];
+
+export default mockDashboardComments;
