@@ -1,52 +1,71 @@
+/* ==============================
+   COMMENTS PAGE
+   ============================== */
+
 .loan-comments-page {
   width: 100%;
   min-height: 100vh;
   padding: 32px;
   background-color: #d4d4d4;
   color: #001e8c;
+  font-family: inherit;
   box-sizing: border-box;
 }
 
 .loan-comments-page * {
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 .loan-comments-container {
   width: 100%;
-  max-width: 1050px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
+/* ==============================
+   PAGE HEADING
+   ============================== */
+
 .comments-page-heading {
-  margin-bottom: 25px;
+  margin-bottom: 28px;
 }
 
 .comments-page-heading h1 {
   margin: 0 0 8px;
   color: #001e8c;
-  font-size: 30px;
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .comments-page-heading p {
   margin: 0;
   color: #0473ea;
+  font-size: 14px;
+  line-height: 1.5;
 }
+
+/* ==============================
+   APPLICATION SUMMARY CARD
+   ============================== */
 
 .application-summary {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   border: 1px solid #d4d4d4;
-  border-radius: 7px;
-  padding: 22px;
+  border-radius: 8px;
+  padding: 24px;
   background-color: #ffffff;
 }
 
 .application-summary div {
   display: flex;
+  min-height: 58px;
   border-right: 1px solid #d4d4d4;
-  padding: 0 20px;
+  padding: 0 22px;
   flex-direction: column;
+  justify-content: center;
 }
 
 .application-summary div:first-child {
@@ -55,23 +74,31 @@
 
 .application-summary div:last-child {
   border-right: none;
+  padding-right: 0;
 }
 
 .application-summary span {
-  margin-bottom: 8px;
-  color: #0473ea;
+  margin-bottom: 9px;
+  color: #001e8c;
   font-size: 12px;
   font-weight: bold;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
 .application-summary strong {
   color: #001e8c;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .application-summary .summary-status {
   color: #d50000;
 }
+
+/* ==============================
+   MAKER COMMENTS HEADING
+   ============================== */
 
 .maker-comments-heading {
   display: flex;
@@ -83,26 +110,36 @@
 .maker-comments-heading h2 {
   margin: 0;
   color: #001e8c;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .maker-comments-heading span {
-  border-radius: 15px;
-  padding: 6px 13px;
+  border-radius: 14px;
+  padding: 6px 14px;
   background-color: #0473ea;
   color: #ffffff;
   font-size: 12px;
+  font-weight: bold;
 }
+
+/* ==============================
+   COMMENTS LIST
+   ============================== */
 
 .comments-list {
   display: grid;
   gap: 20px;
 }
 
+/* ==============================
+   INDIVIDUAL COMMENT CARD
+   ============================== */
+
 .comment-card {
   border: 1px solid #d4d4d4;
-  border-left: 5px solid #0473ea;
-  border-radius: 6px;
-  padding: 24px;
+  border-radius: 8px;
+  padding: 25px;
   background-color: #ffffff;
 }
 
@@ -113,14 +150,16 @@
 }
 
 .comment-card-header h3 {
-  margin: 0 0 8px;
+  margin: 0 0 9px;
   color: #001e8c;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .maker-badge {
   display: inline-block;
   border-radius: 12px;
-  padding: 4px 10px;
+  padding: 5px 11px;
   background-color: #0473ea;
   color: #ffffff;
   font-size: 11px;
@@ -133,15 +172,24 @@
   font-size: 13px;
 }
 
+/* ==============================
+   COMMENT MESSAGE
+   ============================== */
+
 .comment-message {
   margin: 22px 0;
   border: 1px solid #d4d4d4;
   border-radius: 4px;
-  padding: 16px;
+  padding: 17px;
   background-color: #ffffff;
   color: #001e8c;
+  font-size: 15px;
   line-height: 1.6;
 }
+
+/* ==============================
+   COMMENT DETAILS
+   ============================== */
 
 .comment-details {
   display: flex;
@@ -152,6 +200,11 @@
 .comment-details p {
   margin: 0;
   color: #001e8c;
+  font-size: 14px;
+}
+
+.comment-details strong {
+  color: #001e8c;
 }
 
 .action-status {
@@ -159,18 +212,25 @@
   font-weight: bold;
 }
 
+/* ==============================
+   MODIFY APPLICATION BUTTON
+   ============================== */
+
 .modify-button {
   display: block;
-  min-width: 180px;
-  margin-top: 22px;
+  min-width: 190px;
+  margin-top: 24px;
   margin-left: auto;
   border: 2px solid #05561c;
   border-radius: 4px;
-  padding: 12px 22px;
+  padding: 12px 24px;
   background-color: #05561c;
   color: #ffffff;
   cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
   font-weight: bold;
+  letter-spacing: 0.4px;
 }
 
 .modify-button:hover {
@@ -179,37 +239,58 @@
   color: #001e8c;
 }
 
+.modify-button:active {
+  border-color: #001e8c;
+  background-color: #001e8c;
+  color: #ffffff;
+}
+
+.modify-button:focus {
+  outline: 3px solid #82f028;
+  outline-offset: 2px;
+}
+
+/* ==============================
+   NO COMMENTS
+   ============================== */
+
 .no-comments {
   border: 1px solid #d4d4d4;
+  border-radius: 8px;
   padding: 40px;
   background-color: #ffffff;
   color: #001e8c;
   text-align: center;
 }
 
-.edit-application-id {
-  color: #0473ea;
+.no-comments h3 {
+  margin: 0 0 10px;
+  color: #001e8c;
+  font-size: 18px;
 }
 
-.back-comments-button {
-  margin-top: 20px;
-  border: none;
-  border-radius: 4px;
-  padding: 12px 22px;
-  background-color: #0473ea;
-  color: #ffffff;
-  cursor: pointer;
-  font-weight: bold;
+.no-comments p {
+  margin: 0;
+  color: #0473ea;
+  font-size: 14px;
 }
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
 
 @media (max-width: 750px) {
   .loan-comments-page {
     padding: 15px;
   }
 
+  .comments-page-heading h1 {
+    font-size: 26px;
+  }
+
   .application-summary {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 22px;
   }
 
   .application-summary div {
@@ -217,13 +298,89 @@
     padding: 0;
   }
 
-  .comment-card-header,
-  .comment-details {
-    flex-direction: column;
+  .comment-card-header {
     gap: 12px;
+    flex-direction: column;
+  }
+
+  .comment-details {
+    gap: 12px;
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .modify-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .application-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .maker-comments-heading {
+    gap: 12px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.edit-mode-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  padding: 16px 20px;
+  background-color: #ffffff;
+}
+
+.edit-mode-toolbar p {
+  margin: 0;
+  color: #001e8c;
+  font-size: 14px;
+}
+
+.edit-mode-toolbar strong {
+  color: #0473ea;
+}
+
+.exit-edit-button {
+  border: 1px solid #0473ea;
+  border-radius: 4px;
+  padding: 11px 20px;
+  background-color: #ffffff;
+  color: #0473ea;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.exit-edit-button:hover {
+  background-color: #0473ea;
+  color: #ffffff;
+}
+
+.exit-edit-button:active {
+  background-color: #001e8c;
+  color: #ffffff;
+}
+
+.exit-edit-button:focus {
+  outline: 3px solid #52daff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+  .edit-mode-toolbar {
+    gap: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .exit-edit-button {
     width: 100%;
   }
 }
