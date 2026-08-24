@@ -1,0 +1,54 @@
+import { useState } from "react";
+import AllCommentsTable from "../components/comments/AllCommentsTable";
+import LoanCommentsPage from "./LoanCommentsPage";
+import mockDashboardComments from "../constants/mockDashboardComments";
+import "../styles/comments.css";
+
+function AllCommentsPage() {
+  const [selectedLoanId, setSelectedLoanId] = useState(null);
+
+  function handleViewComments(loanId) {
+    setSelectedLoanId(loanId);
+  }
+
+  function handleBackToAllComments() {
+    setSelectedLoanId(null);
+  }
+
+  if (selectedLoanId) {
+    return (
+      <LoanCommentsPage
+        loanId={selectedLoanId}
+        onBackToAllComments={handleBackToAllComments}
+      />
+    );
+  }
+
+  return (
+    <main className="all-comments-page">
+      <div className="all-comments-container">
+        <div className="all-comments-heading">
+          <div>
+            <h1>Comments</h1>
+
+            <p>
+              View the modification requests available for your loan
+              applications.
+            </p>
+          </div>
+
+          <span className="comments-count">
+            {mockDashboardComments.length} Comments
+          </span>
+        </div>
+
+        <AllCommentsTable
+          comments={mockDashboardComments}
+          handleViewComments={handleViewComments}
+        />
+      </div>
+    </main>
+  );
+}
+
+export default AllCommentsPage;
