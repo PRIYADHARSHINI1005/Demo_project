@@ -479,6 +479,11 @@
   color: #1c1c1c;
   font-size: 14px;
   border-bottom: 1px solid #d4d4d4;
+
+
+
+
+
 }
 
 .comments-table tbody tr:last-child td {
@@ -788,7 +793,29 @@ direction: column;
   .comments-table-footer {
     padding: 14px 16px;
   }
+
+
+.applications-table__comments-button {
+  width: auto;
+  min-width: 70px;
+  padding: 8px 14px;
+
+  background-color: #38d200;
+  color: #05561c;
+  border: none;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
 }
+
+.applications-table__comments-button:hover {
+  background-color: #05561c;
+  color: #ffffff;
+}
+
 
 
 
