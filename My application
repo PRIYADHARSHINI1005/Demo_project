@@ -1,0 +1,43 @@
+<tbody>
+  {currentApplications.map((row) => {
+    const s = STATUS_COLORS[row.status] || {};
+
+    return (
+      <tr key={row.id}>
+        <td className="loan-id-cell">
+          {row.id}
+        </td>
+
+        <td>{row.type}</td>
+
+        <td>{row.amount}</td>
+
+        <td>
+          <span
+            className="applications-table__status"
+            style={{
+              background: s.bg,
+              color: s.color,
+            }}
+          >
+            {row.status}
+          </span>
+        </td>
+
+        <td>{row.date}</td>
+
+        <td>
+          <button
+            type="button"
+            className="view-comments-button"
+            onClick={() =>
+              handleViewComments(row.id)
+            }
+          >
+            View
+          </button>
+        </td>
+      </tr>
+    );
+  })}
+</tbody>
