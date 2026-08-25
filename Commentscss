@@ -609,11 +609,43 @@
   color: #ffffff;
 }@media screen and (max-width: 768px) {
   .comments-header-row {
-    flex-direction: column;
+    flex-
+
+direction: column;
   }
 
   .back-to-all-comments-button {
     align-self: flex-end;
   }
+}
+.back-navigation-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  width: auto;
+  margin: 0 0 20px;
+  padding: 0;
+
+  background: none;
+  color: #001e8c;
+  border: none;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: underline;
+
+  cursor: pointer;
+}
+
+.back-navigation-link:hover {
+  color: #0473ea;
+}
+
+.back-navigation-link:focus-visible {
+  outline: 2px solid #52daff;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
