@@ -1,0 +1,191 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { STATUS_COLORS } from "../../constants/colors";
+import "../../styles/comments.css";
+
+export default function ListOfApplications({
+  applications,
+}) {
+  const navigate = useNavigate();
+
+  const applicationsPerPage = 4;
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Return to page 1 when the filter changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [applications]);
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(
+      applications.length / applicationsPerPage
+    )
+  );
+
+  const startIndex =
+    (currentPage - 1) * applicationsPerPage;
+
+  const endIndex = Math.min(
+    startIndex + applicationsPerPage,
+    applications.length
+  );
+
+  const currentApplications = applications.slice(
+    startIndex,
+    endIndex
+  );
+
+  const displayStart =
+    applications.length === 0
+      ? 0
+      : startIndex + 1;
+
+  function handleViewComments(loanId) {
+    navigate("/customer/comments", {
+      state: {
+        loanId: loanId,
+      },
+    });
+  }
+
+  function goToPreviousPage() {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  }
+
+  function goToNextPage() {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  }
+
+  return (
+    <div className="comments-table-card">
+      <div className="comments-table-container">
+        <table className="comments-table">
+          <thead>
+            <tr>
+              <th>Loan ID</th>
+              <th>Type</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Applied</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {currentApplications.length === 0 ? (
+              <tr>
+                <td colSpan="6">
+                  No applications available.
+                </td>
+              </tr>
+            ) : (
+              currentApplications.map((row) => {
+                const statusColor =
+                  STATUS_COLORS[row.status] || {};
+
+                return (
+                  <tr key={row.id}>
+                    <td className="loan-id-cell">
+                      {row.id}
+                    </td>
+
+                    <td>{row.type}</td>
+
+                    <td>{row.amount}</td>
+
+                    <td>
+                      <span
+                        className="applications-table__status"
+                        style={{
+                          background:
+                            statusColor.bg,
+                          color:
+                            statusColor.color,
+                        }}
+                      >
+                        {row.status}
+                      </span>
+                    </td>
+
+                    <td>{row.date}</td>
+
+                    <td>
+                      <button
+                        type="button"
+                        className="view-comments-button"
+                        onClick={() =>
+                          handleViewComments(
+                            row.id
+                          )
+                        }
+                      >
+                        View
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="comments-table-footer">
+        <span>
+          Showing {displayStart} to {endIndex} of{" "}
+          {applications.length} applications
+        </span>
+
+        <div className="comments-pagination">
+          <button
+            type="button"
+            onClick={goToPreviousPage}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+
+          {Array.from(
+            { length: totalPages },
+            (_, index) => {
+              const pageNumber = index + 1;
+
+              return (
+                <button
+                  type="button"
+                  key={pageNumber}
+                  className={
+                    currentPage === pageNumber
+                      ? "active-page"
+                      : ""
+                  }
+                  onClick={() =>
+                    setCurrentPage(pageNumber)
+                  }
+                >
+                  {pageNumber}
+                </button>
+              );
+            }
+          )}
+
+          <button
+            type="button"
+            onClick={goToNextPage}
+            disabled={
+              currentPage === totalPages
+            }
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
