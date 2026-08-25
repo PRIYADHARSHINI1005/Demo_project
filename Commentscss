@@ -566,7 +566,54 @@
   .comments-table td {
     padding: 14px;
   }
+}.comments-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
 }
 
+.comments-page-heading {
+  flex: 1;
+  margin: 0;
+}
 
+.comments-page-heading h1 {
+  margin: 0 0 8px;
+}
+
+.comments-page-heading p {
+  margin: 0;
+}
+
+.back-to-all-comments-button {
+  flex-shrink: 0;
+  width: auto;
+  margin: 4px 0 0;
+  padding: 10px 16px;
+
+  background-color: #ffffff;
+  color: #001e8c;
+  border: 1px solid #001e8c;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.back-to-all-comments-button:hover {
+  background-color: #001e8c;
+  color: #ffffff;
+}@media screen and (max-width: 768px) {
+  .comments-header-row {
+    flex-direction: column;
+  }
+
+  .back-to-all-comments-button {
+    align-self: flex-end;
+  }
+}
 
