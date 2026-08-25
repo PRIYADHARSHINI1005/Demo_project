@@ -1,0 +1,192 @@
+/* =====================================
+   SHARED TABLE DESIGN
+   Used by Comments and My Applications
+===================================== */
+
+/* Only this outer element has the card design */
+
+.comments-table-card {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #d4d4d4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 30, 140, 0.06);
+}
+
+/* This is only for horizontal scrolling.
+   Do not give it another border or shadow. */
+
+.comments-table-container {
+  width: 100%;
+  overflow-x: auto;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Table */
+
+.comments-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+/* Heading row */
+
+.comments-table thead {
+  background-color: #ffffff;
+}
+
+.comments-table th {
+  height: 52px;
+  padding: 14px 22px;
+
+  background-color: #ffffff;
+  color: #555555;
+  border-bottom: 1px solid #d4d4d4;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* Data rows */
+
+.comments-table tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.2s ease;
+}
+
+.comments-table tbody tr:hover {
+  background-color: #f7faff;
+}
+
+.comments-table td {
+  height: 58px;
+  padding: 16px 22px;
+
+  color: #1c1c1c;
+  border-bottom: 1px solid #e8e8e8;
+
+  font-family: inherit;
+  font-size: 14px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.comments-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Loan ID */
+
+.loan-id-cell {
+  color: #001e8c;
+  font-weight: 600;
+}
+
+/* Shared View button */
+
+.view-comments-button {
+  width: auto;
+  min-width: 70px;
+  padding: 8px 14px;
+
+  background-color: #38d200;
+  color: #05561c;
+  border: none;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.view-comments-button:hover {
+  background-color: #05561c;
+  color: #ffffff;
+}
+
+/* Shared footer */
+
+.comments-table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+
+  min-height: 62px;
+  padding: 12px 22px;
+
+  background-color: #ffffff;
+  color: #666666;
+  border-top: 1px solid #d4d4d4;
+
+  font-family: inherit;
+  font-size: 13px;
+}
+
+/* Shared pagination */
+
+.comments-pagination {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.comments-pagination button {
+  width: auto;
+  min-width: 34px;
+  height: 34px;
+  padding: 0 10px;
+
+  background-color: #ffffff;
+  color: #001e8c;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.comments-pagination button:hover:not(:disabled) {
+  background-color: #eaf4ff;
+  border-color: #0473ea;
+}
+
+.comments-pagination .active-page {
+  background-color: #0473ea;
+  color: #ffffff;
+  border-color: #0473ea;
+}
+
+.comments-pagination button:disabled {
+  background-color: #f5f5f5;
+  color: #aaaaaa;
+  cursor: not-allowed;
+}
+
+/* Responsive table */
+
+@media screen and (max-width: 768px) {
+  .comments-table th,
+  .comments-table td {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .comments-table-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 14px 16px;
+  }
+}
