@@ -1,48 +1,135 @@
 function AllCommentsTable({ comments, handleViewComments }) {
+
+  function getStatusClass(status) {
+
+    if (status === "Action Required") {
+
+      return "status-action-required";
+
+    }
+
+    if (status === "Pending Review") {
+
+      return "status-pending";
+
+    }
+
+    if (status === "Resolved") {
+
+      return "status-resolved";
+
+    }
+
+    return "";
+
+  }
+
   if (comments.length === 0) {
+
     return <p className="no-comments-message">No comments available.</p>;
+
   }
 
   return (
-    <div className="comments-table-container">
-      <table className="comments-table">
-        <thead>
-          <tr>
-            <th>Loan ID</th>
-            <th>Comment ID</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
 
-        <tbody>
-          {comments.map((comment) => (
-            <tr key={comment.commentId}>
-              <td>{comment.loanId}</td>
+    <section className="comments-table-card">
 
-              <td>{comment.commentId}</td>
+      <div className="comments-table-card-heading">
 
-              <td>
-                <span className="comment-status">
-                  {comment.status}
-                </span>
-              </td>
+        <h2>Comment Requests</h2>
 
-              <td>
-                <button
-                  type="button"
-                  className="view-comments-button"
-                  onClick={() => handleViewComments(comment.loanId)}
-                >
-                  View Comments
-                </button>
-              </td>
+      </div>
+
+      <div className="comments-table-container">
+
+        <table className="comments-table">
+
+          <thead>
+
+            <tr>
+
+              <th>Loan ID</th>
+
+              <th>Comment ID</th>
+
+              <th>Status</th>
+
+              <th>Action</th>
+
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+
+          </thead>
+
+          <tbody>
+
+            {comments.map((comment) => (
+
+              <tr key={comment.commentId}>
+
+                <td className="loan-id-cell">{comment.loanId}</td>
+
+                <td>{comment.commentId}</td>
+
+                <td>
+
+                  <span
+
+                    className={`comment-status ${getStatusClass(
+
+                      comment.status
+
+                    )}`}
+
+                  >
+
+                    {comment.status}
+
+                  </span>
+
+                </td>
+
+                <td>
+
+                  <button
+
+                    type="button"
+
+                    className="view-comments-button"
+
+                    onClick={() =>
+
+                      handleViewComments(comment.loanId)
+
+                    }
+
+                  >
+
+                    View
+
+                  </button>
+
+                </td>
+
+              </tr>
+
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+      <div className="comments-table-footer">
+
+        Showing 1 to {comments.length} of {comments.length} comments
+
+      </div>
+
+    </section>
+
   );
+
 }
 
 export default AllCommentsTable;
