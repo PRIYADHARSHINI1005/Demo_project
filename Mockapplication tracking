@@ -1,0 +1,240 @@
+const mockApplicationTracking = [
+  {
+    applicationId: "LN-0041",
+    loanId: null,
+    loanType: "Personal Loan",
+    requestedAmount: 24000,
+    currentStage: "Maker Review",
+    currentStatus: "Action Required",
+    submittedAt: "2026-08-24T10:15:00",
+    lastUpdatedAt: "2026-08-25T14:10:00",
+
+    events: [
+      {
+        id: 1,
+        title: "Application Submitted",
+        description: "Your loan application was submitted successfully.",
+        status: "completed",
+        actor: "Customer",
+        timestamp: "2026-08-24T10:15:00"
+      },
+      {
+        id: 2,
+        title: "Sent to Maker Queue",
+        description:
+          "Your application was sent to the Operations Maker queue.",
+        status: "completed",
+        actor: "System",
+        timestamp: "2026-08-24T10:16:00"
+      },
+      {
+        id: 3,
+        title: "Maker Review Started",
+        description: "The Operations Maker started reviewing your application.",
+        status: "completed",
+        actor: "Operations Maker",
+        timestamp: "2026-08-25T09:30:00"
+      },
+      {
+        id: 4,
+        title: "Modification Requested",
+        description: "Please upload an updated income proof document.",
+        status: "action-required",
+        actor: "Operations Maker",
+        timestamp: "2026-08-25T14:10:00",
+        commentId: "COM001",
+        showCommentsAction: true
+      },
+      {
+        id: 5,
+        title: "Checker Review",
+        description: "This step starts after the Maker completes verification.",
+        status: "pending",
+        actor: "Operations Checker",
+        timestamp: null
+      },
+      {
+        id: 6,
+        title: "Final Decision",
+        description: "The final decision is pending.",
+        status: "pending",
+        actor: "Operations Checker",
+        timestamp: null
+      }
+    ]
+  },
+
+  {
+    applicationId: "LN-0038",
+    loanId: null,
+    loanType: "Auto Loan",
+    requestedAmount: 21000,
+    currentStage: "Checker Review",
+    currentStatus: "In Progress",
+    submittedAt: "2026-08-20T11:20:00",
+    lastUpdatedAt: "2026-08-25T12:30:00",
+
+    events: [
+      {
+        id: 1,
+        title: "Application Submitted",
+        description: "Your loan application was submitted successfully.",
+        status: "completed",
+        actor: "Customer",
+        timestamp: "2026-08-20T11:20:00"
+      },
+      {
+        id: 2,
+        title: "Sent to Maker Queue",
+        description:
+          "Your application was sent to the Operations Maker queue.",
+        status: "completed",
+        actor: "System",
+        timestamp: "2026-08-20T11:21:00"
+      },
+      {
+        id: 3,
+        title: "Maker Review Completed",
+        description: "The Maker completed the application verification.",
+        status: "completed",
+        actor: "Operations Maker",
+        timestamp: "2026-08-23T15:30:00"
+      },
+      {
+        id: 4,
+        title: "Sent to Checker",
+        description: "Your application was sent for final verification.",
+        status: "completed",
+        actor: "System",
+        timestamp: "2026-08-23T15:31:00"
+      },
+      {
+        id: 5,
+        title: "Checker Review",
+        description: "The Checker is currently reviewing your application.",
+        status: "current",
+        actor: "Operations Checker",
+        timestamp: "2026-08-25T12:30:00"
+      },
+      {
+        id: 6,
+        title: "Final Decision",
+        description: "The final decision is pending.",
+        status: "pending",
+        actor: "Operations Checker",
+        timestamp: null
+      }
+    ]
+  },
+
+  {
+    applicationId: "LN-0045",
+    loanId: null,
+    loanType: "Personal Loan",
+    requestedAmount: 5000,
+    currentStage: "Maker Queue",
+    currentStatus: "Pending",
+    submittedAt: "2026-08-25T16:45:00",
+    lastUpdatedAt: "2026-08-25T16:46:00",
+
+    events: [
+      {
+        id: 1,
+        title: "Application Submitted",
+        description: "Your loan application was submitted successfully.",
+        status: "completed",
+        actor: "Customer",
+        timestamp: "2026-08-25T16:45:00"
+      },
+      {
+        id: 2,
+        title: "Sent to Maker Queue",
+        description:
+          "Your application is waiting for an Operations Maker review.",
+        status: "current",
+        actor: "System",
+        timestamp: "2026-08-25T16:46:00"
+      },
+      {
+        id: 3,
+        title: "Maker Review",
+        description: "The Maker review has not started yet.",
+        status: "pending",
+        actor: "Operations Maker",
+        timestamp: null
+      },
+      {
+        id: 4,
+        title: "Checker Review",
+        description: "This step starts after the Maker completes verification.",
+        status: "pending",
+        actor: "Operations Checker",
+        timestamp: null
+      },
+      {
+        id: 5,
+        title: "Final Decision",
+        description: "The final decision is pending.",
+        status: "pending",
+        actor: "Operations Checker",
+        timestamp: null
+      }
+    ]
+  },
+
+  {
+    applicationId: "LN-0033",
+    loanId: "LOAN-10033",
+    loanType: "Personal Loan",
+    requestedAmount: 8500,
+    currentStage: "Completed",
+    currentStatus: "Approved",
+    submittedAt: "2026-08-15T09:15:00",
+    lastUpdatedAt: "2026-08-20T14:45:00",
+
+    events: [
+      {
+        id: 1,
+        title: "Application Submitted",
+        description: "Your loan application was submitted successfully.",
+        status: "completed",
+        actor: "Customer",
+        timestamp: "2026-08-15T09:15:00"
+      },
+      {
+        id: 2,
+        title: "Maker Review Completed",
+        description: "The Maker completed the application verification.",
+        status: "completed",
+        actor: "Operations Maker",
+        timestamp: "2026-08-17T12:20:00"
+      },
+      {
+        id: 3,
+        title: "Checker Review Completed",
+        description: "The Checker completed the final verification.",
+        status: "completed",
+        actor: "Operations Checker",
+        timestamp: "2026-08-20T14:30:00"
+      },
+      {
+        id: 4,
+        title: "Application Approved",
+        description: "Your loan application was approved successfully.",
+        status: "completed",
+        actor: "Operations Checker",
+        timestamp: "2026-08-20T14:40:00"
+      },
+      {
+        id: 5,
+        title: "Loan Created",
+        description: "Loan ID LOAN-10033 was generated successfully.",
+        status: "completed",
+        actor: "System",
+        timestamp: "2026-08-20T14:45:00"
+      }
+    ]
+  }
+];
+
+export default mockApplicationTracking;
