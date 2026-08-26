@@ -1,0 +1,89 @@
+import { useNavigate, useParams } from "react-router-dom";
+import TrackingSummary from "../components/applicationTracking/TrackingSummary";
+import TrackingTimeline from "../components/applicationTracking/TrackingTimeline";
+import mockApplicationTracking from "../constants/mockApplicationTracking";
+import "../styles/applicationTracking.css";
+
+function ApplicationTrackingPage() {
+  const navigate = useNavigate();
+  const { applicationId } = useParams();
+
+  const selectedApplication = mockApplicationTracking.find(
+    (application) => application.applicationId === applicationId
+  );
+
+  function handleBack() {
+    navigate("/customer/my-applications");
+  }
+
+  function handleViewComments(commentId) {
+    navigate("/customer/comments", {
+      state: {
+        loanId: selectedApplication.applicationId,
+        commentId: commentId
+      }
+    });
+  }
+
+  if (!selectedApplication) {
+    return (
+      <main className="application-tracking-page">
+        <div className="tracking-page-container">
+          <button
+            type="button"
+            className="tracking-back-link"
+            onClick={handleBack}
+          >
+            ← Back to My Applications
+          </button>
+
+          <div className="tracking-not-found">
+            <h2>Application not found</h2>
+
+            <p>
+              Tracking information is not available for this application.
+            </p>
+          </div>
+        </div>
+      </main>
+    );
+  }
+
+  return (
+    <main className="application-tracking-page">
+      <div className="tracking-page-container">
+        <button
+          type="button"
+          className="tracking-back-link"
+          onClick={handleBack}
+        >
+          ← Back to My Applications
+        </button>
+
+        <div className="tracking-page-heading">
+          <div>
+            <h1>Application Tracking</h1>
+
+            <p>
+              View the current status and complete history of your loan
+              application.
+            </p>
+          </div>
+
+          <span className="tracking-heading-id">
+            {selectedApplication.applicationId}
+          </span>
+        </div>
+
+        <TrackingSummary application={selectedApplication} />
+
+        <TrackingTimeline
+          events={selectedApplication.events}
+          onViewComments={handleViewComments}
+        />
+      </div>
+    </main>
+  );
+}
+
+export default ApplicationTrackingPage;
