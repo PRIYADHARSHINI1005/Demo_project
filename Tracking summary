@@ -1,0 +1,96 @@
+function TrackingSummary({ application }) {
+  function formatAmount(amount) {
+    return amount.toLocaleString("en-IN");
+  }
+
+  function formatDate(dateValue) {
+    if (!dateValue) {
+      return "Not available";
+    }
+
+    return new Date(dateValue).toLocaleString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    });
+  }
+
+  function getStatusClass(status) {
+    if (status === "Approved") {
+      return "tracking-status-green";
+    }
+
+    if (status === "Action Required") {
+      return "tracking-status-red";
+    }
+
+    if (status === "In Progress") {
+      return "tracking-status-blue";
+    }
+
+    if (status === "Pending") {
+      return "tracking-status-yellow";
+    }
+
+    return "tracking-status-default";
+  }
+
+  return (
+    <section className="tracking-summary-card">
+      <div className="tracking-summary-heading">
+        <h2>Application Summary</h2>
+
+        <span
+          className={`tracking-summary-status ${getStatusClass(
+            application.currentStatus
+          )}`}
+        >
+          {application.currentStatus}
+        </span>
+      </div>
+
+      <div className="tracking-summary-grid">
+        <div className="tracking-summary-item">
+          <span>Application ID</span>
+          <strong>{application.applicationId}</strong>
+        </div>
+
+        <div className="tracking-summary-item">
+          <span>Loan ID</span>
+          <strong>{application.loanId || "Not generated"}</strong>
+        </div>
+
+        <div className="tracking-summary-item">
+          <span>Loan Type</span>
+          <strong>{application.loanType}</strong>
+        </div>
+
+        <div className="tracking-summary-item">
+          <span>Requested Amount</span>
+          <strong>
+            ₹{formatAmount(application.requestedAmount)}
+          </strong>
+        </div>
+
+        <div className="tracking-summary-item">
+          <span>Current Stage</span>
+          <strong>{application.currentStage}</strong>
+        </div>
+
+        <div className="tracking-summary-item">
+          <span>Submitted On</span>
+          <strong>{formatDate(application.submittedAt)}</strong>
+        </div>
+
+        <div className="tracking-summary-item">
+          <span>Last Updated</span>
+          <strong>{formatDate(application.lastUpdatedAt)}</strong>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default TrackingSummary;
