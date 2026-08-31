@@ -1,4 +1,6 @@
 * Tracks the complete loan application progress.
 * Displays the current status and processing stage.
 * Shows completed, ongoing, action-required, and pending steps.
-* Provides access to comments when modification is required.
+* Provides access to comments when modification is * Displays Maker comments for the selected application.
+* Shows any requested changes.
+* Allows the customer to modify and resubmit the application.
