@@ -1,0 +1,96 @@
+import {
+  UserRound,
+  House,
+  BriefcaseBusiness,
+  CarFront
+} from "lucide-react";
+
+const loanIcons = {
+  "Personal Loan": UserRound,
+  "Home Loan": House,
+  "Business Loan": BriefcaseBusiness,
+  "Vehicle Loan": CarFront
+};
+
+const loanDescriptions = {
+  "Personal Loan": "For personal expenses and short-term financial needs.",
+  "Home Loan": "For buying, building or renovating your dream home.",
+  "Business Loan": "For business growth, expansion and working capital.",
+  "Vehicle Loan": "For purchasing a new or used vehicle."
+};
+
+<section
+  className="loan-type-picker"
+  aria-labelledby="loan-type-picker-title"
+>
+  <div className="loan-type-picker__header">
+    <div>
+      <h2
+        id="loan-type-picker-title"
+        className="loan-type-picker__title"
+      >
+        Choose a loan type
+      </h2>
+
+      <p className="loan-type-picker__subtitle">
+        Select the loan that best matches your requirement.
+      </p>
+    </div>
+  </div>
+
+  <div className="loan-type-picker__grid">
+    {loanTypeCards.map((card) => {
+      const LoanIcon = loanIcons[card.loanType];
+
+      return (
+        <button
+          key={card.loanType}
+          type="button"
+          className="loan-type-card"
+          onClick={() =>
+            applyLoanTypeSelection(card.loanType)
+          }
+        >
+          <div className="loan-type-card__icon">
+            <LoanIcon
+              size={32}
+              strokeWidth={1.8}
+            />
+          </div>
+
+          <div className="loan-type-card__content">
+            <h3 className="loan-type-card__title">
+              {card.loanType}
+            </h3>
+
+            <p className="loan-type-card__summary">
+              {loanDescriptions[card.loanType]}
+            </p>
+          </div>
+
+          <div className="loan-type-card__right">
+            <div className="loan-type-card__rateBlock">
+              <strong className="loan-type-card__rate">
+                {card.interestRate}% p.a.
+              </strong>
+
+              <span className="loan-type-card__rateLabel">
+                Interest rate
+              </span>
+            </div>
+
+            <span className="loan-type-card__action">
+              <span>Select</span>
+              <span className="loan-type-card__arrow">
+                →
+              </span>
+            </span>
+          </div>
+        </button>
+      );
+    })}
+  </div>
+</section>
+
+
+
