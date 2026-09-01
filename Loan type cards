@@ -1,0 +1,83 @@
+{loanTypeCards.map((card) => (
+  <button
+    key={card.loanType}
+    type="button"
+    className="loan-type-card"
+    onClick={() => applyLoanTypeSelection(card.loanType)}
+  >
+    <div className="loan-type-card__icon">
+      {/* put your icon here */}
+    </div>
+
+    <h3 className="loan-type-card__title">
+      {card.loanType}
+    </h3>
+
+    <div className="loan-type-card__rateBlock">
+      <strong className="loan-type-card__rate">
+        {card.interestRate}% p.a.
+      </strong>
+
+      <span className="loan-type-card__rateLabel">
+        Interest Rate
+      </span>
+    </div>
+
+    <p className="loan-type-card__summary">
+      {card.description}
+    </p>
+
+    <span className="loan-type-card__action">
+      Select →
+    </span>
+  </button>
+))}
+
+
+.loan-type-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.loan-type-card {
+  background: #ffffff;
+  border: 1px solid #d9e2ec;
+  border-radius: 14px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: left;
+  min-height: 250px;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  box-shadow: 0 4px 14px rgba(0, 30, 140, 0.06);
+}
+
+.loan-type-card:hover {
+  border-color: #0473ea;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 30, 140, 0.12);
+}
+
+.loan-type-card__icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  background: #eef5ff;
+  color: #0473ea;
+
+  margin-bottom: 18px;
+}
+
