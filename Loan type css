@@ -1,121 +1,363 @@
+/* =========================
+   LOAN TYPE SELECTION
+   ========================= */
+
 .loan-type-picker {
   width: 100%;
+  padding: 20px 0 30px;
   box-sizing: border-box;
 }
 
+
+/* ---------- HEADER ---------- */
+
 .loan-type-picker__header {
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
-.loan-type-picker__eyebrow {
+.loan-type-picker__title {
   margin: 0;
-  font-size: 13px;
-  font-weight: 600;
-  color: #5f6b7a;
+
+  color: #001e8c;
+
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
 }
+
+.loan-type-picker__subtitle {
+  margin: 8px 0 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+
+/* ---------- LIST ---------- */
 
 .loan-type-picker__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
   width: 100%;
-}
-
-.loan-type-card {
-  background: #ffffff;
-  border: 1px solid #dfe6ee;
-  border-radius: 14px;
-  padding: 24px;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 
-  text-align: left;
-  min-height: 245px;
+  gap: 16px;
+}
+
+
+/* =========================
+   INDIVIDUAL LOAN CARD
+   ========================= */
+
+.loan-type-card {
   width: 100%;
 
+  display: grid;
+
+  grid-template-columns:
+    90px
+    minmax(0, 1fr)
+    180px;
+
+  align-items: center;
+
+  gap: 24px;
+
+  padding: 22px 26px;
+
   box-sizing: border-box;
+
+  background-color: #ffffff;
+
+  border: 1px solid #dce4ed;
+
+  border-radius: 14px;
+
+  text-align: left;
+
   cursor: pointer;
 
-  box-shadow: 0 4px 14px rgba(0, 30, 140, 0.06);
+  font-family: inherit;
+
+  box-shadow:
+    0 3px 12px
+    rgba(15, 23, 42, 0.05);
 
   transition:
     border-color 0.2s ease,
+    background-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
 }
 
+
+/* ---------- HOVER ---------- */
+
 .loan-type-card:hover {
   border-color: #0473ea;
-  box-shadow: 0 7px 20px rgba(0, 30, 140, 0.11);
+
+  background-color: #f8fbff;
+
   transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 22px
+    rgba(15, 23, 42, 0.09);
 }
 
-.loan-type-card:focus {
+
+/* ---------- KEYBOARD FOCUS ---------- */
+
+.loan-type-card:focus-visible {
   outline: none;
+
   border-color: #0473ea;
-  box-shadow: 0 0 0 3px rgba(4, 115, 234, 0.12);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(4, 115, 234, 0.12);
+}
+
+
+/* =========================
+   ICON
+   ========================= */
+
+.loan-type-card__icon {
+  width: 72px;
+  height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  background-color: #f1f6ff;
+
+  border: 1px solid #d9e7fb;
+
+  border-radius: 14px;
+
+  color: #0473ea;
+}
+
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+
+.loan-type-card__content {
+  min-width: 0;
 }
 
 .loan-type-card__title {
-  margin: 0 0 18px;
+  margin: 0 0 7px;
+
+  color: #001e8c;
+
   font-size: 20px;
   font-weight: 700;
-  color: #001e8c;
-  line-height: 1.25;
+
+  line-height: 1.3;
 }
+
+.loan-type-card__summary {
+  margin: 0;
+
+  max-width: 480px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  line-height: 1.55;
+}
+
+
+/* =========================
+   RIGHT SIDE
+   ========================= */
+
+.loan-type-card__right {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 16px;
+}
+
+
+/* ---------- RATE ---------- */
 
 .loan-type-card__rateBlock {
   display: flex;
   flex-direction: column;
-  margin-bottom: 16px;
+
+  align-items: flex-end;
 }
 
 .loan-type-card__rate {
-  font-size: 22px;
+  color: #0473ea;
+
+  font-size: 23px;
   font-weight: 700;
-  color: #001e8c;
+
   line-height: 1.2;
 }
 
 .loan-type-card__rateLabel {
   margin-top: 4px;
+
+  color: #64748b;
+
   font-size: 12px;
   font-weight: 500;
-  color: #6b7280;
 }
 
-.loan-type-card__summary {
-  margin: 0;
-  max-width: 290px;
 
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.55;
-
-  color: #5f6b7a;
-}
+/* =========================
+   SELECT BUTTON
+   ========================= */
 
 .loan-type-card__action {
-  margin-top: auto;
-  padding-top: 24px;
+  min-width: 120px;
+  height: 40px;
 
-  font-size: 14px;
-  font-weight: 600;
+  padding: 0 16px;
+
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  border: 1px solid #0473ea;
+
+  border-radius: 8px;
+
+  background-color: #ffffff;
+
   color: #0473ea;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
-.loan-type-card:hover .loan-type-card__action {
-  text-decoration: underline;
+.loan-type-card__arrow {
+  font-size: 18px;
+
+  line-height: 1;
+
+  transition:
+    transform 0.2s ease;
 }
 
-@media (max-width: 800px) {
-  .loan-type-picker__grid {
-    grid-template-columns: 1fr;
+
+/* ---------- SELECT HOVER ---------- */
+
+.loan-type-card:hover
+.loan-type-card__action {
+  background-color: #0473ea;
+
+  color: #ffffff;
+}
+
+.loan-type-card:hover
+.loan-type-card__arrow {
+  transform: translateX(3px);
+}
+
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .loan-type-card {
+    grid-template-columns:
+      75px
+      minmax(0, 1fr)
+      150px;
+
+    gap: 18px;
+
+    padding: 20px;
+  }
+
+  .loan-type-card__icon {
+    width: 62px;
+    height: 62px;
+  }
+
+  .loan-type-card__rate {
+    font-size: 20px;
+  }
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 650px) {
+
+  .loan-type-picker__title {
+    font-size: 24px;
   }
 
   .loan-type-card {
-    min-height: 220px;
+    grid-template-columns:
+      62px
+      minmax(0, 1fr);
+
+    gap: 16px;
+
+    padding: 18px;
+  }
+
+  .loan-type-card__icon {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 12px;
+  }
+
+  .loan-type-card__title {
+    font-size: 18px;
+  }
+
+  .loan-type-card__right {
+    grid-column: 2;
+
+    width: 100%;
+
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-top: 4px;
+  }
+
+  .loan-type-card__rateBlock {
+    align-items: flex-start;
+  }
+
+  .loan-type-card__action {
+    min-width: 105px;
   }
 }
