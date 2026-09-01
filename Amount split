@@ -1,0 +1,192 @@
+export function AmountSplitChart({ data }) {
+
+  // Convert amounts like "$68,500" into numbers
+  const normalized = data.map((d) => ({
+    ...d,
+
+    numericAmount:
+      typeof d.amount === "string"
+        ? Number(String(d.amount).replace(/[^0-9.-]+/g, ""))
+        : d.amount || d.value
+  }));
+
+
+  // Calculate total amount
+  const total = normalized.reduce(
+    (sum, item) => sum + item.numericAmount,
+    0
+  );
+
+
+  return (
+    <section className="distribution-card">
+
+      {/* HEADER */}
+      <div className="distribution-card__header">
+
+        <div>
+          <p className="distribution-card__eyebrow">
+            Loan amount by type
+          </p>
+
+          <h2 className="distribution-card__title">
+            Amount split
+          </h2>
+        </div>
+
+
+        {/* TOTAL AMOUNT */}
+        <span className="distribution-card__total">
+
+          <span className="distribution-card__totalLabel">
+            Total amount
+          </span>
+
+          <span className="distribution-card__totalValue">
+            ${total.toLocaleString()}
+          </span>
+
+        </span>
+
+      </div>
+
+
+      {/* BODY */}
+      <div
+        className="distribution-card__body"
+        style={{
+          gridTemplateColumns: "1fr 180px",
+          gap: 18
+        }}
+      >
+
+        {/* GRAPH */}
+        <div
+          style={{
+            width: "100%",
+            height: 230
+          }}
+        >
+
+          <ResponsiveContainer width="100%" height="100%">
+
+            <BarChart
+              data={normalized}
+              margin={{
+                top: 10,
+                right: 10,
+                left: 0,
+                bottom: 10
+              }}
+            >
+
+              {/* Horizontal background lines */}
+              <CartesianGrid
+                strokeDasharray="3 3"
+                vertical={false}
+              />
+
+
+              {/* Loan types */}
+              <XAxis
+                dataKey="label"
+                tickLine={false}
+                axisLine={false}
+              />
+
+
+              {/* Amount */}
+              <YAxis
+                tickLine={false}
+                axisLine={false}
+                tickFormatter={(value) =>
+                  value >= 1000
+                    ? `$${value / 1000}k`
+                    : `$${value}`
+                }
+              />
+
+
+              {/* Hover information */}
+              <Tooltip
+                formatter={(value) => [
+                  `$${Number(value).toLocaleString()}`,
+                  "Amount"
+                ]}
+              />
+
+
+              {/* Bars */}
+              <Bar
+                dataKey="numericAmount"
+                barSize={32}
+                radius={[6, 6, 0, 0]}
+              >
+
+                {normalized.map((entry) => (
+                  <Cell
+                    key={entry.label}
+                    fill={entry.accent}
+                  />
+                ))}
+
+              </Bar>
+
+            </BarChart>
+
+          </ResponsiveContainer>
+
+        </div>
+
+
+        {/* RIGHT SIDE AMOUNT LIST */}
+        <div
+          className="distribution-card__list"
+          style={{
+            alignSelf: "center"
+          }}
+        >
+
+          {normalized.map((item) => (
+
+            <div
+              className="distribution-card__row"
+              key={item.label}
+            >
+
+              <div className="distribution-card__rowTop">
+
+                <div className="distribution-card__rowLabelWrap">
+
+                  <span
+                    className="distribution-card__dot"
+                    style={{
+                      backgroundColor: item.accent
+                    }}
+                  />
+
+                  <span className="distribution-card__rowLabel">
+                    {item.label}
+                  </span>
+
+                </div>
+
+
+                <span className="distribution-card__rowValue">
+                  {item.amount ||
+                    `$${item.numericAmount.toLocaleString()}`}
+                </span>
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+      </div>
+
+    </section>
+  );
+}
