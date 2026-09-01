@@ -1,0 +1,121 @@
+.loan-type-picker {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loan-type-picker__header {
+  margin-bottom: 18px;
+}
+
+.loan-type-picker__eyebrow {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #5f6b7a;
+}
+
+.loan-type-picker__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.loan-type-card {
+  background: #ffffff;
+  border: 1px solid #dfe6ee;
+  border-radius: 14px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  text-align: left;
+  min-height: 245px;
+  width: 100%;
+
+  box-sizing: border-box;
+  cursor: pointer;
+
+  box-shadow: 0 4px 14px rgba(0, 30, 140, 0.06);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.loan-type-card:hover {
+  border-color: #0473ea;
+  box-shadow: 0 7px 20px rgba(0, 30, 140, 0.11);
+  transform: translateY(-2px);
+}
+
+.loan-type-card:focus {
+  outline: none;
+  border-color: #0473ea;
+  box-shadow: 0 0 0 3px rgba(4, 115, 234, 0.12);
+}
+
+.loan-type-card__title {
+  margin: 0 0 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #001e8c;
+  line-height: 1.25;
+}
+
+.loan-type-card__rateBlock {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.loan-type-card__rate {
+  font-size: 22px;
+  font-weight: 700;
+  color: #001e8c;
+  line-height: 1.2;
+}
+
+.loan-type-card__rateLabel {
+  margin-top: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.loan-type-card__summary {
+  margin: 0;
+  max-width: 290px;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+
+  color: #5f6b7a;
+}
+
+.loan-type-card__action {
+  margin-top: auto;
+  padding-top: 24px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #0473ea;
+}
+
+.loan-type-card:hover .loan-type-card__action {
+  text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  .loan-type-picker__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-type-card {
+    min-height: 220px;
+  }
+}
