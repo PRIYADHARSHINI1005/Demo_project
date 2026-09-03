@@ -1,0 +1,143 @@
+.savings-card {
+  width: 100%;
+  max-width: 560px;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #001e5a;
+  border: 1px solid #dfe5ec;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 30, 90, 0.08);
+  box-sizing: border-box;
+}
+
+/* Header */
+
+.savings-card__header {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 28px 18px;
+}
+
+.savings-card__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  background-color: #edf5ff;
+  color: #0473ea;
+  border-radius: 50%;
+}
+
+.savings-card__icon svg {
+  width: 27px;
+  height: 27px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.savings-card__title {
+  margin: 0 0 5px;
+  color: #001e5a;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.savings-card__type {
+  margin: 0;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.savings-card__status {
+  padding: 7px 14px;
+  background-color: #e5f7ec;
+  color: #087a3d;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Balance */
+
+.savings-card__body {
+  padding: 20px 28px 30px;
+}
+
+.savings-card__balance-label {
+  margin: 0 0 8px;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.savings-card__balance {
+  margin: 0;
+  color: #001e5a;
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+
+/* Account number */
+
+.savings-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 28px;
+  background-color: #fbfcfe;
+  border-top: 1px solid #e5e9ef;
+}
+
+.savings-card__account-label {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.savings-card__account-number {
+  color: #001e5a;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .savings-card__header {
+    grid-template-columns: 46px minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .savings-card__icon {
+    width: 46px;
+    height: 46px;
+  }
+
+  .savings-card__title {
+    font-size: 18px;
+  }
+
+  .savings-card__status {
+    padding: 6px 10px;
+  }
+
+  .savings-card__body {
+    padding: 18px 20px 26px;
+  }
+
+  .savings-card__footer {
+    padding: 16px 20px;
+  }
+}
