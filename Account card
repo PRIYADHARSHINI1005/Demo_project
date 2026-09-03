@@ -1,0 +1,67 @@
+import React from "react";
+import "./SavingsAccountCard.css";
+
+export default function SavingsAccountCard({ account }) {
+  const {
+    accountNumber = "",
+    balance = 0,
+    currency = "₹",
+    status = "Active"
+  } = account || {};
+
+  const formattedBalance = `${currency}${Number(balance).toLocaleString(
+    "en-IN",
+    {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    }
+  )}`;
+
+  const lastFourDigits = String(accountNumber).slice(-4);
+
+  const maskedAccountNumber = lastFourDigits
+    ? `•••• ${lastFourDigits}`
+    : "Not available";
+
+  return (
+    <section
+      className="savings-card"
+      aria-label="Savings account summary"
+    >
+      <header className="savings-card__header">
+        <div className="savings-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 10h18M5 10v8m4-8v8m6-8v8m4-8v8M3 18h18M2 21h20M12 3 2 8h20L12 3Z" />
+          </svg>
+        </div>
+
+        <div className="savings-card__heading">
+          <h3 className="savings-card__title">Savings Account</h3>
+          <p className="savings-card__type">Primary account</p>
+        </div>
+
+        <span className="savings-card__status">{status}</span>
+      </header>
+
+      <div className="savings-card__body">
+        <p className="savings-card__balance-label">
+          Available balance
+        </p>
+
+        <p className="savings-card__balance">
+          {formattedBalance}
+        </p>
+      </div>
+
+      <footer className="savings-card__footer">
+        <span className="savings-card__account-label">
+          Account number
+        </span>
+
+        <span className="savings-card__account-number">
+          {maskedAccountNumber}
+        </span>
+      </footer>
+    </section>
+  );
+}
