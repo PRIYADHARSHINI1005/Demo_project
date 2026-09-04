@@ -1,0 +1,483 @@
+.customer-dashboard {
+  min-height: 100vh;
+  padding: 28px;
+  background-color: #f5f7fa;
+  color: #001e5a;
+  box-sizing: border-box;
+}
+
+.customer-dashboard__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.customer-dashboard__heading h1 {
+  margin: 0 0 6px;
+  color: #001e5a;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.customer-dashboard__heading p {
+  margin: 0;
+  color: #687386;
+  font-size: 14px;
+}
+
+/* Summary cards */
+
+.dashboard-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 112px;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 30, 90, 0.06);
+  box-sizing: border-box;
+}
+
+.summary-card__icon {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.summary-card__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.summary-card__label {
+  margin-bottom: 5px;
+  color: #687386;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.summary-card__value {
+  color: #001e5a;
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.summary-card__description {
+  margin-top: 4px;
+  color: #8a93a3;
+  font-size: 11px;
+}
+
+.summary-card--blue .summary-card__icon {
+  background-color: #e8f3ff;
+  color: #0473ea;
+}
+
+.summary-card--navy .summary-card__icon {
+  background-color: #e8ecf5;
+  color: #001e5a;
+}
+
+.summary-card--green .summary-card__icon {
+  background-color: #e8f8ec;
+  color: #168343;
+}
+
+.summary-card--light-green .summary-card__icon {
+  background-color: #f0f8e8;
+  color: #5c8c2b;
+}
+
+/* Main two-column layout */
+
+.dashboard-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(320px, 0.85fr);
+  align-items: stretch;
+  gap: 22px;
+}
+
+.dashboard-card,
+.savings-account-card {
+  background-color: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 30, 90, 0.06);
+  box-sizing: border-box;
+}
+
+.dashboard-card__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 21px 24px;
+  border-bottom: 1px solid #e4e8ee;
+}
+
+.dashboard-card__heading h2 {
+  margin: 0 0 5px;
+  color: #001e5a;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.dashboard-card__heading p {
+  margin: 0;
+  color: #747f90;
+  font-size: 13px;
+}
+
+.dashboard-link-button {
+  width: auto;
+  padding: 7px 12px;
+  background: transparent;
+  color: #0473ea;
+  border: 1px solid #b8d6f7;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dashboard-link-button:hover {
+  background-color: #edf5ff;
+}
+
+/* Repayments */
+
+.repayment-list {
+  padding: 0 24px;
+}
+
+.repayment-item {
+  display: grid;
+  grid-template-columns:
+    minmax(190px, 1.4fr)
+    minmax(105px, 0.7fr)
+    minmax(115px, 0.8fr)
+    auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 96px;
+  padding: 16px 0;
+  border-bottom: 1px solid #ebedf1;
+}
+
+.repayment-item:last-child {
+  border-bottom: none;
+}
+
+.repayment-item__loan {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.repayment-item__icon {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 39px;
+  height: 39px;
+  background-color: #e8f3ff;
+  color: #0473ea;
+  border-radius: 9px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.repayment-item__loan div:last-child,
+.repayment-item__information {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.repayment-item__loan strong,
+.repayment-item__information strong {
+  color: #17233d;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.repayment-item__loan span,
+.repayment-item__information span {
+  color: #788294;
+  font-size: 12px;
+}
+
+.repayment-item__actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.repayment-status {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 74px;
+  min-height: 28px;
+  padding: 5px 10px;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.repayment-status--upcoming {
+  background-color: #e8f3ff;
+  color: #0473ea;
+}
+
+.repayment-status--scheduled {
+  background-color: #fff4d9;
+  color: #8a6500;
+}
+
+.repayment-status--paid {
+  background-color: #e5f7ec;
+  color: #087a3d;
+}
+
+.repayment-status--overdue {
+  background-color: #fdeaea;
+  color: #c32222;
+}
+
+.repayment-button {
+  min-width: 72px;
+  height: 32px;
+  padding: 0 12px;
+  background-color: #0473ea;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.repayment-button:hover {
+  background-color: #001e5a;
+}
+
+.dashboard-empty-state {
+  padding: 55px 24px;
+  text-align: center;
+}
+
+.dashboard-empty-state h3 {
+  margin: 0 0 8px;
+  color: #001e5a;
+  font-size: 17px;
+}
+
+.dashboard-empty-state p {
+  margin: 0;
+  color: #788294;
+  font-size: 13px;
+}
+
+/* Savings account */
+
+.savings-account-card {
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.savings-account-card__header {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 13px;
+  padding: 22px;
+}
+
+.savings-account-card__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background-color: #e8f3ff;
+  color: #0473ea;
+  border-radius: 50%;
+}
+
+.savings-account-card__icon svg {
+  width: 25px;
+  height: 25px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.savings-account-card__heading h2 {
+  margin: 0 0 4px;
+  color: #001e5a;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.savings-account-card__heading p {
+  margin: 0;
+  color: #788294;
+  font-size: 12px;
+}
+
+.savings-account-card__status {
+  padding: 6px 10px;
+  background-color: #e5f7ec;
+  color: #087a3d;
+  border-radius: 14px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.savings-account-card__balance {
+  flex-grow: 1;
+  padding: 24px 22px 30px;
+}
+
+.savings-account-card__balance span {
+  display: block;
+  margin-bottom: 8px;
+  color: #788294;
+  font-size: 13px;
+}
+
+.savings-account-card__balance strong {
+  color: #001e5a;
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.savings-account-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 17px 22px;
+  background-color: #fafbfd;
+  border-top: 1px solid #e4e8ee;
+}
+
+.savings-account-card__footer span {
+  color: #788294;
+  font-size: 12px;
+}
+
+.savings-account-card__footer strong {
+  color: #001e5a;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Recent Applications */
+
+.dashboard-recent-section {
+  width: 100%;
+  margin-top: 22px;
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .dashboard-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .savings-account-card {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 800px) {
+  .repayment-card {
+    overflow-x: auto;
+  }
+
+  .repayment-item {
+    min-width: 720px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .customer-dashboard {
+    padding: 18px 14px;
+  }
+
+  .customer-dashboard__heading h1 {
+    font-size: 25px;
+  }
+
+  .dashboard-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .summary-card {
+    min-height: 98px;
+    padding: 16px;
+  }
+
+  .dashboard-main-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .savings-account-card {
+    order: -1;
+    min-height: 260px;
+  }
+
+  .dashboard-card__heading {
+    padding: 18px;
+  }
+
+  .repayment-list {
+    padding: 0 18px;
+  }
+
+  .savings-account-card__header,
+  .savings-account-card__balance,
+  .savings-account-card__footer {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
