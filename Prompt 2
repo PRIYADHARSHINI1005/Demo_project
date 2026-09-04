@@ -1,0 +1,83 @@
+I already have four summary/status cards on my React banking dashboard. Redesign only these existing cards; do not change the rest of the dashboard.
+
+Create four medium-sized cards:
+
+1. Credit Score
+2. Total Borrowed
+3. Total Paid
+4. Total Interest Paid
+
+Design requirements:
+
+- Use React JSX and normal CSS only.
+- Do not use Tailwind CSS or additional UI libraries.
+- Keep my existing dynamic data, state, props, variable names, and API integration unchanged.
+- Do not hard-code the displayed values.
+- Make the cards medium-sized—not as large as the reference image.
+- Display all four cards in one horizontal row on a desktop screen.
+- Make the layout responsive:
+  - Four cards per row on large screens
+  - Two cards per row on tablets
+  - One card per row on mobile screens
+
+Card appearance:
+
+- White background
+- Subtle light-gray border
+- Border radius around 10–12px
+- Very soft shadow
+- A thin colored line across the top of each card
+- Comfortable padding and consistent spacing
+- Professional SCB-inspired blue, teal, and green color palette
+- Do not use the Standard Chartered logo or directly copy its proprietary interface
+- Avoid strong gradients, dark backgrounds, and excessive decoration
+
+Inside each card:
+
+- Place a small outline icon inside a lightly tinted rounded-square container at the top-left
+- Show the label below the icon using small uppercase text
+- Show the dynamic value below the label using a large, bold, dark-navy font
+- Add one short supporting description below the value
+- Keep all four cards equal in height and width
+
+Use these card details:
+
+1. Credit Score
+   - Icon: gauge, score, or shield
+   - Accent color: blue
+   - Supporting text: “Current credit rating”
+
+2. Total Borrowed
+   - Icon: banknote or wallet
+   - Accent color: blue
+   - Supporting text: “Original loan amount”
+
+3. Total Paid
+   - Icon: check-circle
+   - Accent color: teal
+   - Supporting text: “Total amount repaid”
+   - Add a thin progress bar only if repayment-percentage data already exists
+
+4. Total Interest Paid
+   - Icon: percentage
+   - Accent color: green
+   - Supporting text: “Interest paid to date”
+
+Suggested dimensions:
+
+- Card min-height: approximately 175–195px
+- Padding: approximately 20–24px
+- Gap between cards: approximately 16–20px
+- Icon container: approximately 40–44px
+- Main value font size: approximately 26–30px
+
+Important:
+
+- First inspect my existing status-card JSX and CSS.
+- Modify the existing component instead of creating duplicate cards.
+- Reuse the icon library already installed in my project.
+- If no icon library is installed, use simple Unicode symbols or CSS-based icons; do not install a new dependency.
+- Preserve the existing dashboard layout and functionality.
+- Make sure long values such as ₹12,50,000 do not overflow.
+- Remove or replace old CSS rules that conflict with the new design.
+- Provide the complete updated JSX and CSS, and clearly mention which old code should be replaced.
