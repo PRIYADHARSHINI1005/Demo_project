@@ -1,0 +1,157 @@
+Paste this prompt into GitHub Copilot Chat, then paste your colour palette where indicated.
+
+I already have a React customer dashboard for a Loan Origination System. Please inspect my existing dashboard components and CSS before making changes.
+
+Modify only the customer dashboard UI. Preserve the existing routing, sidebar, header, API/mock-data flow, event handlers and application functionality.
+
+Technology constraints:
+
+* Use React JSX and normal CSS only.
+* Do not use Tailwind CSS.
+* Do not install or introduce new packages.
+* Reuse existing components and CSS classes where practical.
+* Keep all displayed values dynamic using the existing props, state, mock data or API data.
+* Do not hardcode dashboard values directly inside JSX.
+* Use the colour palette I provide below.
+* Do not add colours outside the provided palette.
+
+Required dashboard changes:
+
+1. Remove the existing visualisation sections:
+
+* Amount Split graph
+* Applications by Status pie/donut chart
+
+If these components are used elsewhere, do not delete them. Only stop rendering them on the customer dashboard.
+
+2. Keep four summary cards at the top:
+
+* Credit Score
+* Total Borrowed
+* Total Paid
+* Total Interest Paid
+
+Redesign these four cards to look like compact, professional banking dashboard cards:
+
+* Equal width and height
+* One row on desktop
+* Small relevant icon
+* Short label
+* Clearly visible value
+* Consistent spacing and typography
+* Light border and subtle shadow
+* Responsive wrapping on smaller screens
+
+3. Below the summary cards, create a two-column dashboard layout.
+
+Left column:
+Create an “Upcoming Repayments” section.
+
+Display repayment information using the existing customer loan data. Each repayment should contain:
+
+* Loan ID
+* Loan type
+* EMI amount
+* Due date
+* Repayment status
+* Optional action such as “Pay Now” or “View”
+
+Use status badges such as:
+
+* Upcoming
+* Scheduled
+* Paid
+* Overdue
+
+Do not show completed transactions in this section. It should primarily help the customer identify the next payments requiring attention.
+
+If there are no upcoming repayments, display:
+“No upcoming repayments. Repayment details will appear after a loan is approved.”
+
+Right column:
+Place the existing Savings Account card at the top.
+
+The Savings Account card should show:
+
+* “Savings Account”
+* “Primary account”
+* Available balance
+* Masked account number showing only the final four digits
+* Active status badge
+
+Do not include a “View Details” button.
+
+Below the Savings Account card, place the existing “Recent Applications” section.
+
+Recent Applications should display:
+
+* Application ID
+* Loan type
+* Requested amount
+* Application status
+* Applied date
+* Existing action button, if available
+
+Keep the Recent Applications card compact enough to fit in the right column. Do not remove its existing navigation or click handlers.
+
+4. Use this desktop layout:
+
+Top:
+Credit Score | Total Borrowed | Total Paid | Total Interest Paid
+
+Below:
+
+* Left side: Upcoming Repayments
+* Right side: Savings Account card
+* Under Savings Account: Recent Applications
+
+Suggested column proportion:
+
+* Upcoming Repayments: 58–62%
+* Right section: 38–42%
+
+5. Responsive behaviour:
+
+* On tablets, allow the four cards to form two columns.
+* On mobile, display all components vertically in this order:
+    1. Credit Score
+    2. Total Borrowed
+    3. Total Paid
+    4. Total Interest Paid
+    5. Savings Account
+    6. Upcoming Repayments
+    7. Recent Applications
+* Prevent horizontal page overflow.
+* Make any table horizontally scrollable on small screens.
+
+6. Styling requirements:
+
+* Professional enterprise banking appearance
+* Clean white cards
+* Consistent border radius
+* Subtle borders and shadows
+* Clear heading hierarchy
+* Proper spacing between sections
+* Consistent button and status-badge styling
+* No gradients
+* No glassmorphism
+* No oversized cards
+* Avoid excessive empty space
+* Do not change the existing sidebar or top navigation design
+
+7. Code-quality requirements:
+
+* Keep components separated according to the existing project architecture.
+* Do not place all dashboard code in one file.
+* Do not duplicate formatting functions unnecessarily.
+* Use .map() for dynamic repayment and application lists.
+* Add stable key values when rendering lists.
+* Add loading, empty and error states if the current API structure supports them.
+* Do not rename existing files, routes, props or functions unless required.
+* Clearly mention every file you changed.
+* Provide the updated code file by file, including the required CSS.
+* Explain before removing any existing code that may be shared with another page.
+
+Use this colour palette exactly:
+
+[PASTE MY COLOUR PALETTE HERE]
