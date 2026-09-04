@@ -1,0 +1,44 @@
+Hi Jared,
+
+Hope you are doing well.
+
+Please find attached the Sprint Retrospective document for Iteration 3. Below is a brief summary:
+
+Sprint Focus and Outcome
+
+* Completed the backend implementation.
+* Completed approximately 90% of the frontend-backend integration.
+* Improved the UI based on the review feedback.
+
+Team Collaboration and Ownership
+
+* The team collaborated effectively during development and integration.
+* Team members took ownership of their assigned tasks.
+* Tasks were pushed and merged systematically to avoid conflicts.
+
+What Went Well
+
+* Backend implementation and integration progressed well.
+* Git practices helped us avoid major merge conflicts.
+* Instructor and Academy Lead reviews provided useful feedback.
+
+What Did Not Go Well
+
+* SME discussions did not happen during the initial stages.
+* Some business logic had to be changed during integration.
+* Major UI changes were identified toward the end of the sprint.
+
+Root Causes
+
+* Limited early communication with the SME.
+* Lack of clarity about certain requirements and application flows.
+* The UI was not reviewed thoroughly during the initial stages.
+
+Action Items for the Next Sprint
+
+* Complete the remaining frontend-backend integration.
+* Implement the review feedback and perform end-to-end testing.
+* Add logging, remove unused code, and complete the final review.
+
+Regards,
+Priyadharshini U
