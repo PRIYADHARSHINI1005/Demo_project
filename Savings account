@@ -1,0 +1,68 @@
+import React from "react";
+import "../../styles/dashboard.css";
+
+function SavingsAccountCard({ account }) {
+  const {
+    accountNumber = "",
+    accountType = "Primary account",
+    balance = 0,
+    currency = "₹",
+    status = "Active"
+  } = account || {};
+
+  const formattedBalance = `${currency}${Number(
+    balance
+  ).toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })}`;
+
+  const lastFourDigits = String(accountNumber).slice(-4);
+
+  const maskedAccountNumber = lastFourDigits
+    ? `•••• ${lastFourDigits}`
+    : "Not available";
+
+  return (
+    <article
+      className="savings-account-card"
+      aria-label="Savings account"
+    >
+      <div className="savings-account-card__header">
+        <div className="savings-account-card__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10h18" />
+            <path d="M5 10v8" />
+            <path d="M9 10v8" />
+            <path d="M15 10v8" />
+            <path d="M19 10v8" />
+            <path d="M3 18h18" />
+            <path d="M2 21h20" />
+            <path d="M12 3 2 8h20L12 3Z" />
+          </svg>
+        </div>
+
+        <div className="savings-account-card__heading">
+          <h2>Savings Account</h2>
+          <p>{accountType}</p>
+        </div>
+
+        <span className="savings-account-card__status">
+          {status}
+        </span>
+      </div>
+
+      <div className="savings-account-card__balance">
+        <span>Available balance</span>
+        <strong>{formattedBalance}</strong>
+      </div>
+
+      <div className="savings-account-card__footer">
+        <span>Account number</span>
+        <strong>{maskedAccountNumber}</strong>
+      </div>
+    </article>
+  );
+}
+
+export default SavingsAccountCard;
