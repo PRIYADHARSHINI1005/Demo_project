@@ -1,0 +1,64 @@
+Hi Jared,
+
+As part of this week’s Sprint Retrospective, please find below a summary of our progress, key learnings, and planned actions for the next sprint.
+
+1. Sprint Summary
+
+Iteration 3 was a continuation of the work completed during Iteration 2, with our primary focus on the backend development of the Loan Origination project.
+
+During this sprint, we:
+
+* Completed the major backend implementation.
+* Completed approximately 90% of the frontend and backend integration.
+* Improved the overall UI structure of the application.
+* Participated in reviews conducted by our instructor.
+* Presented the application to the Academy Leads for an overall review.
+
+The review sessions helped us identify several UI improvements required across the dashboard and other areas of the application. We have started incorporating this feedback.
+
+In the next sprint, we plan to complete the remaining integration work and begin comprehensive testing of the application.
+
+2. What Went Well
+
+* The team collaborated efficiently during the backend implementation.
+* Team coordination remained strong throughout the frontend and backend integration.
+* We explored creative improvements to make the UI more professional and user-friendly.
+* To reduce merge conflicts, we followed a structured Git approach by completing and pushing tasks one at a time.
+* This approach helped us merge our changes into the main branch without major conflicts.
+* Team members supported one another while resolving integration-related issues.
+
+3. What Did Not Go Well
+
+* We did not connect with the SME during the initial stages of the project.
+* Due to delayed communication, we later had to modify certain business logic and application flows.
+* There was limited clarity regarding some business processes and the expected end-to-end application workflow.
+* We did not implement sufficient application logging during the initial development.
+* Some logic had to be changed while integrating the backend with the frontend, which increased the integration effort.
+* We became aware of several major frontend and dashboard changes only toward the end of the sprint, leaving limited time to implement them.
+
+4. Root Causes
+
+* Insufficient communication with the SME during the early stages of the project.
+* Limited understanding of certain business requirements and process flows.
+* Lack of early validation of the business logic before implementation.
+* The UI design was not reviewed thoroughly during the initial stages.
+* Integration requirements and dependencies were not fully identified before development.
+* Logging and testing considerations were not included early enough in the implementation plan.
+
+5. Action Items for the Next Sprint
+
+* Complete the remaining frontend and backend integration.
+* Perform end-to-end testing of the complete application.
+* Validate the business logic and application flow with the SME.
+* Conduct final review sessions with our instructor, Academy Leads, and SME.
+* Implement the UI changes identified during the review.
+* Add appropriate application logging to support debugging and monitoring.
+* Use AI tools responsibly for code review and refactoring.
+* Remove unused, duplicate, and obsolete code from the application.
+* Complete the overall project implementation and ensure it is ready for the final demonstration.
+
+Overall, this sprint helped us make significant progress in backend development and application integration. It also highlighted the importance of early requirement validation, regular SME communication, and timely UI reviews. We will apply these learnings during the next sprint to complete and stabilize the application.
+
+Regards,
+Priyadharshini U
+Scrum Master
