@@ -1,0 +1,237 @@
+import { useState } from "react";
+import SavingsAccountCard from "./SavingsAccountCard";
+import RecentApplications from "./RecentApplications";
+import "../../styles/dashboard.css";
+
+function Dashboard() {
+  /*
+   * Temporary data for UI development.
+   * Later, replace this with data returned by the dashboard API.
+   */
+  const [dashboardData] = useState({
+    creditScore: 720,
+    totalBorrowed: 15000,
+    totalPaid: 5000,
+    totalInterestPaid: 1200,
+
+    savingsAccount: {
+      accountNumber: "SB0123456789",
+      accountType: "Primary account",
+      balance: 52340.75,
+      currency: "₹",
+      status: "Active"
+    },
+
+    upcomingRepayments: [
+      {
+        id: 1,
+        loanId: "LN-001234",
+        loanType: "Personal Loan",
+        emiAmount: 12500,
+        dueDate: "2026-09-12",
+        status: "Upcoming"
+      },
+      {
+        id: 2,
+        loanId: "LN-001198",
+        loanType: "Vehicle Loan",
+        emiAmount: 8200,
+        dueDate: "2026-09-20",
+        status: "Scheduled"
+      }
+    ]
+  });
+
+  function formatCurrency(amount) {
+    return `₹${Number(amount).toLocaleString("en-IN")}`;
+  }
+
+  function formatDate(dateValue) {
+    if (!dateValue) {
+      return "Not available";
+    }
+
+    return new Date(dateValue).toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+      year: "numeric"
+    });
+  }
+
+  function getRepaymentStatusClass(status) {
+    return status.toLowerCase().replaceAll(" ", "-");
+  }
+
+  const summaryCards = [
+    {
+      id: 1,
+      label: "Credit Score",
+      value: dashboardData.creditScore,
+      description: "Good",
+      icon: "CS",
+      colorClass: "summary-card--blue"
+    },
+    {
+      id: 2,
+      label: "Total Borrowed",
+      value: formatCurrency(dashboardData.totalBorrowed),
+      description: "Across all loans",
+      icon: "₹",
+      colorClass: "summary-card--navy"
+    },
+    {
+      id: 3,
+      label: "Total Paid",
+      value: formatCurrency(dashboardData.totalPaid),
+      description: "Across all loans",
+      icon: "✓",
+      colorClass: "summary-card--green"
+    },
+    {
+      id: 4,
+      label: "Total Interest Paid",
+      value: formatCurrency(dashboardData.totalInterestPaid),
+      description: "Across all loans",
+      icon: "%",
+      colorClass: "summary-card--light-green"
+    }
+  ];
+
+  return (
+    <main className="customer-dashboard">
+      <div className="customer-dashboard__heading">
+        <div>
+          <h1>Dashboard</h1>
+          <p>
+            View your account, repayments and recent loan applications.
+          </p>
+        </div>
+      </div>
+
+      {/* Four summary cards */}
+      <section
+        className="dashboard-summary-grid"
+        aria-label="Loan summary"
+      >
+        {summaryCards.map((card) => (
+          <article
+            className={`summary-card ${card.colorClass}`}
+            key={card.id}
+          >
+            <div className="summary-card__icon">
+              {card.icon}
+            </div>
+
+            <div className="summary-card__content">
+              <span className="summary-card__label">
+                {card.label}
+              </span>
+
+              <strong className="summary-card__value">
+                {card.value}
+              </strong>
+
+              <span className="summary-card__description">
+                {card.description}
+              </span>
+            </div>
+          </article>
+        ))}
+      </section>
+
+      {/* Repayment and savings account row */}
+      <section className="dashboard-main-grid">
+        <article className="dashboard-card repayment-card">
+          <div className="dashboard-card__heading">
+            <div>
+              <h2>Upcoming Repayments</h2>
+              <p>Your next scheduled loan payments</p>
+            </div>
+
+            <button
+              type="button"
+              className="dashboard-link-button"
+            >
+              View All
+            </button>
+          </div>
+
+          {dashboardData.upcomingRepayments.length > 0 ? (
+            <div className="repayment-list">
+              {dashboardData.upcomingRepayments.map(
+                (repayment) => (
+                  <div
+                    className="repayment-item"
+                    key={repayment.id}
+                  >
+                    <div className="repayment-item__loan">
+                      <div className="repayment-item__icon">
+                        ₹
+                      </div>
+
+                      <div>
+                        <strong>{repayment.loanId}</strong>
+                        <span>{repayment.loanType}</span>
+                      </div>
+                    </div>
+
+                    <div className="repayment-item__information">
+                      <span>EMI amount</span>
+                      <strong>
+                        {formatCurrency(repayment.emiAmount)}
+                      </strong>
+                    </div>
+
+                    <div className="repayment-item__information">
+                      <span>Due date</span>
+                      <strong>
+                        {formatDate(repayment.dueDate)}
+                      </strong>
+                    </div>
+
+                    <div className="repayment-item__actions">
+                      <span
+                        className={`repayment-status repayment-status--${getRepaymentStatusClass(
+                          repayment.status
+                        )}`}
+                      >
+                        {repayment.status}
+                      </span>
+
+                      <button
+                        type="button"
+                        className="repayment-button"
+                      >
+                        Pay Now
+                      </button>
+                    </div>
+                  </div>
+                )
+              )}
+            </div>
+          ) : (
+            <div className="dashboard-empty-state">
+              <h3>No upcoming repayments</h3>
+
+              <p>
+                Repayment details will appear after a loan is
+                approved.
+              </p>
+            </div>
+          )}
+        </article>
+
+        <SavingsAccountCard
+          account={dashboardData.savingsAccount}
+        />
+      </section>
+
+      {/* Existing Recent Applications component */}
+      <section className="dashboard-recent-section">
+        <RecentApplications />
+      </section>
+    </main>
+  );
+}
+
+export default Dashboard;
