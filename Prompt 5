@@ -1,0 +1,71 @@
+I am integrating my React frontend with my Spring Boot backend.
+
+I already have:
+
+1. `PersonalDetails.jsx`
+   - This component displays the personal-details fields in my loan application form.
+
+2. `CustomerAPI.js`
+   - This file contains a function called `fetchCustomerProfile(customerId)`.
+   - The function calls the backend API and returns the customer profile based on the customer ID.
+
+Please integrate `fetchCustomerProfile()` with `PersonalDetails.jsx`.
+
+Requirements:
+
+- When `PersonalDetails.jsx` loads, call:
+  `fetchCustomerProfile(customerId)`
+
+- Obtain `customerId` from the correct existing source in my application, such as props, route parameters, logged-in user data, or localStorage. First inspect my current code and use the existing source. Do not hard-code the customer ID.
+
+- Use `useEffect` to call the API when the component loads or when `customerId` changes.
+
+- Store the API result in the parent loan application `formData` state using the existing `setFormData` function.
+
+- Populate the corresponding personal-details fields automatically, such as:
+  - customerName
+  - dateOfBirth
+  - email
+  - contactNumber
+  - address
+  - city
+  - country
+
+- Inspect the actual backend response and map its property names correctly to the existing frontend field names. Do not assume that both use identical names.
+
+- Preserve all existing loan-form fields while updating the personal-details fields. Use the functional state update:
+  `setFormData(previousData => ({ ...previousData, ...mappedProfile }))`
+
+- Do not overwrite existing fields with `undefined` or `null`.
+
+- Keep the fields editable after they are populated unless the existing business requirement marks them as read-only.
+
+- Add separate UI states for:
+  - loading the customer profile
+  - successful loading
+  - API failure
+  - customer ID not available
+
+- Display a simple loading message while fetching and a user-friendly error message if the request fails.
+
+- Prevent the API call when `customerId` is missing.
+
+- Avoid infinite API calls by using the correct `useEffect` dependency array.
+
+- Do not place API-calling logic inside `handleChange`.
+
+- Do not create duplicate form state inside `PersonalDetails.jsx` if `formData` and `setFormData` are already managed by `LoanApplicationPage.jsx`.
+
+- Keep the existing validation, styling, field names, Next-button behavior, and component structure unchanged.
+
+Please first analyze these related files:
+- `PersonalDetails.jsx`
+- `CustomerAPI.js`
+- `LoanApplicationPage.jsx`
+- the authentication or routing file where `customerId` is stored
+
+Then provide the complete updated code only for the files that actually require changes. Also explain:
+1. where the customer ID comes from,
+2. when the API call happens,
+3. how the response is mapped into `formData`,
+4. how loading and error handling work.
